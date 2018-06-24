@@ -1,2 +1,2 @@
-## Eksa Pramindanata
-wew
+Kelas untuk Intermediate Front-end
+Eksa Pramindanata
