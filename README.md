@@ -1,1 +1,2 @@
-Kelas untuk Intermediate Front-end
+# Dody Code Repository
+[x] Dody Prasetyo
