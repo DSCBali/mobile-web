@@ -62,7 +62,7 @@ git push origin nama-branch
 ```
 git add .
 git commit -m "pesan commit"
-git push origin nama-branch
+git push origin nama-branch# Kelas untuk Intermediate Front-end
 ```
 
 ## Tugas 4
