@@ -1,1 +1,2 @@
-# Dody Code Repository
+# Kelas Intermediate Front-end
+Dody Prasetyo
