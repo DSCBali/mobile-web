@@ -1,0 +1,1 @@
+Kelas untuk Intermediate Front-end
