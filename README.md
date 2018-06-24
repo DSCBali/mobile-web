@@ -58,8 +58,20 @@ git push origin nama-branch
   - red, di antara 0-400px
   - green, di antara 401-599px
   - blue, width >= 600px (bisas pakai min-width)
+- Jangan lupa untuk add & commit:
+```
+git add .
+git commit -m "pesan commit"
+git push origin nama-branch
+```
 
 ## Tugas 4
 - Buka http://localhost:5000/lesson3/Start/
 - File yang perlu kalian edit ada di **Lesson3/Start/responsive.css**
 - Di sana sudah ada catatan yang perlu kalian lakukan
+- Jangan lupa untuk add & commit:
+```
+git add .
+git commit -m "pesan commit"
+git push origin nama-branch
+```
