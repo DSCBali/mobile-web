@@ -5,6 +5,11 @@ body, html {
   height: 100%;
 }
 
+a {
+  min-width: 48px;
+  min-height: 48px;
+}
+
 body {
   font-family: Roboto;
   font-size: 12px;
@@ -17,6 +22,7 @@ h1, h2, h3, h4, h5 {
 
 header, nav, footer, section, article, div {
   box-sizing: border-box;
+  width: 100%;
 }
 
 ul {
@@ -53,7 +59,7 @@ ul {
 }
 
 .header__inner {
-  width: 800px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -81,7 +87,7 @@ ul {
  */
 
 .nav {
-  width: 800px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -100,6 +106,8 @@ ul {
   line-height: 24px;
   padding: 24px;
   text-transform: uppercase;
+  min-width: 48px;
+  min-height: 48px;
 }
 
 .nav a {
@@ -121,7 +129,7 @@ ul {
 
 main {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-  width: 800px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -141,7 +149,7 @@ main {
 
 .hero {
   float: left;
-  width: 480px;
+  width: 100%;
   position: relative;
   background-image: url("./images/dog.jpg");
   background-size: cover;
@@ -169,7 +177,7 @@ main {
 
 .top-news {
   float: right;
-  width: 320px;
+  width: 100%;
   height: 300px;
   border-bottom: 1px solid #E0E0E0;
   padding: 1em;
@@ -214,7 +222,7 @@ main {
  */
 
 .scores {
-  width: 480px;
+  width: 100%;
   float: left;
   padding-top: 1em;
 }
@@ -264,7 +272,7 @@ main {
 
 .weather {
   float: right;
-  width: 320px;
+  width: 100%;
   padding: 1em;
 }
 
