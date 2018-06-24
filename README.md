@@ -1,1 +1,1 @@
-Kelas untuk Intermediate Front-end
+I Gede Galang Kerta Mulyana
