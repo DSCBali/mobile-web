@@ -67,7 +67,7 @@ ul {
 
 .header__title {
   font-weight: 300;
-  font-size: 4em;
+  font-size: 2.5em;
   margin: 0.5em 0.25em;
   display: inline-block;
   color: #212121;
@@ -108,6 +108,7 @@ ul {
   text-decoration: none;
   color: #616161;
 }
+
 
 .nav a:hover {
   text-decoration: underline;
