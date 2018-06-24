@@ -1,1 +1,2 @@
-Kelas untuk Intermediate Front-end
+
+Rangga Rizky Tri Adi
