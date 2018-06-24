@@ -12,6 +12,9 @@
 }
 
 @media screen and (max-width: 549px) {
+  .hero, .top-news, .scores, .weather, .recent-news {
+    width: 100%;
+  }
   .header__logo {
     height: 48px;
     margin-right: 0.5em;
@@ -19,7 +22,7 @@
   .header__title {
     margin-left: 0;
     font-size: 2em;
-    vertical-align: bottom; 
+    vertical-align: bottom;
   }
   .nav {
     z-index: 10;
@@ -54,12 +57,21 @@
   }
 }
 
-
 /* Buat hero sebelah kiri dan weather sebelah kanan, hero lebih lebar sedikit */
 @media screen and (min-width: 550px) {
   .hero {
+    order: -1;
+    width: 60%;
   }
   .weather {
+    order: 0;
+    width: 40%;
+  }
+  .top-news{
+    width: 100%;
+  }
+  .scores{
+    width: 100%;
   }
 }
 
@@ -75,12 +87,20 @@
 
 @media screen and (min-width: 700px) {
   .hero {
+    order: 0;
+    width: 50%;
   }
   .top-news {
+    order: 1;
+    width: 50%;
   }
   .scores {
+    order: 2;
+    width: 60%;
   }
   .weather {
+    order: 3;
+    width: 40%;
   }
 }
 

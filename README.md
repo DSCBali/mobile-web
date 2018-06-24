@@ -50,4 +50,3 @@ git add .
 git commit -m "pesan commit"
 git push origin nama-branch
 ```
->>>>>>> b446ab920535805d4b2a4458a17ff2c4eb0e9f6e
