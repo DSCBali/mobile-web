@@ -58,8 +58,12 @@
 /* Buat hero sebelah kiri dan weather sebelah kanan, hero lebih lebar sedikit */
 @media screen and (min-width: 550px) {
   .hero {
+    order: 1;
+    width: 60%;
   }
   .weather {
+    order: 2;
+    width: 40%;
   }
 }
 
@@ -75,12 +79,20 @@
 
 @media screen and (min-width: 700px) {
   .hero {
+    order: 1;
+    width: 50%;
   }
   .top-news {
+    order: 2;
+    width: 50%;
   }
   .scores {
+    order: 3;
+    width: 60%;
   }
   .weather {
+    order: 4;
+    width: 40%;
   }
 }
 
