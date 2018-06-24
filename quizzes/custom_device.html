@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="../default_styles.css">
+  <title>DSC Bali</title>
+
+  <style type="text/css">
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      text-align: center;
+      font-size: 8em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container"></div>
+  <script type="text/javascript">
+    var container = document.querySelector('.container');
+    function tick() {
+      var width = window.innerWidth;
+      container.textContent = width + " px";
+      window.requestAnimationFrame(tick);
+    }
+
+    window.requestAnimationFrame(tick);
+    var hasWidth = false;
+    var hasHeight = false;
+
+    var interval = window.setInterval(runTests, 1000);
+
+    function runTests() {
+      if (hasHeight && hasWidth) {
+        window.clearInterval(interval);
+      }
+
+      var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      var height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+      if (width === 412) {
+        hasWidth = true;
+        window.dispatchEvent(new CustomEvent('ud-width', { 'detail': 'passed' }));
+      }
+
+      if (height === 603) {
+        hasHeight = true;
+        window.dispatchEvent(new CustomEvent('ud-height', { 'detail': 'passed' }));
+      }
+    }
+
+  </script>
+</body>
+
+</html>
