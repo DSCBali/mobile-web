@@ -11,6 +11,11 @@ body {
   color: #424242;
 }
 
+a {
+  min-width: 48px;
+  min-height: 48px;
+}
+
 h1, h2, h3, h4, h5 {
   margin: 0; 
 }
@@ -141,7 +146,7 @@ main {
 
 .hero {
   float: left;
-  width: 100%;
+  width: 60%;
   position: relative;
   background-image: url("./images/dog.jpg");
   background-size: cover;
@@ -169,7 +174,7 @@ main {
 
 .top-news {
   float: right;
-  width: 320px;
+  width: 40%;
   height: 300px;
   border-bottom: 1px solid #E0E0E0;
   padding: 1em;
@@ -214,7 +219,7 @@ main {
  */
 
 .scores {
-  width: 480px;
+  width: 60%;
   float: left;
   padding-top: 1em;
 }
@@ -264,7 +269,7 @@ main {
 
 .weather {
   float: right;
-  width: 320px;
+  width: 40%;
   padding: 1em;
 }
 
