@@ -12,7 +12,7 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-  margin: 0; 
+  margin: 0;
 }
 
 header, nav, footer, section, article, div {
@@ -29,7 +29,7 @@ ul {
 /*
  *
  * Common
- * 
+ *
  */
 
 .news__more {
@@ -53,7 +53,7 @@ ul {
 }
 
 .header__inner {
-  width: 800px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -67,7 +67,7 @@ ul {
 
 .header__title {
   font-weight: 300;
-  font-size: 4em;
+  font-size: 2em;
   margin: 0.5em 0.25em;
   display: inline-block;
   color: #212121;
@@ -81,7 +81,7 @@ ul {
  */
 
 .nav {
-  width: 800px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -105,6 +105,8 @@ ul {
 .nav a {
   text-decoration: none;
   color: #616161;
+  min-height: 48px;
+  min-height: 48px;
 }
 
 .nav a:hover {
@@ -121,7 +123,7 @@ ul {
 
 main {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-  width: 800px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -141,7 +143,7 @@ main {
 
 .hero {
   float: left;
-  width: 480px;
+  width: 100%;
   position: relative;
   background-image: url("./images/dog.jpg");
   background-size: cover;
@@ -169,7 +171,7 @@ main {
 
 .top-news {
   float: right;
-  width: 320px;
+  width: 100%;
   height: 300px;
   border-bottom: 1px solid #E0E0E0;
   padding: 1em;
@@ -199,6 +201,8 @@ main {
 .top-news__item a {
   text-decoration: none;
   color: #666;
+  min-width: 48px;
+  max-height: 48px;
 }
 
 .top-news__item a:hover,
@@ -214,7 +218,7 @@ main {
  */
 
 .scores {
-  width: 480px;
+  width: 100%;
   float: left;
   padding-top: 1em;
 }
@@ -226,7 +230,7 @@ main {
 
 .scores__table th,
 .scores__table td {
-  padding: 1em; 
+  padding: 1em;
 }
 
 .scores__table th {
@@ -264,7 +268,7 @@ main {
 
 .weather {
   float: right;
-  width: 320px;
+  width: 100%;
   padding: 1em;
 }
 
@@ -341,6 +345,8 @@ main {
 .snippet__title a {
   text-decoration: none;
   color: #666;
+  min-width: 48px;
+  min-height: 48px;
 }
 
 .snippet__title a:hover,
@@ -369,4 +375,6 @@ footer li {
 footer a {
   text-decoration: none;
   color: #333;
+  min-width: 48px;
+  min-height: 48px;
 }
