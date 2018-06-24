@@ -1,1 +1,1 @@
-Kelas untuk Intermediate Front-end
+Roberto Apriliano Papur (1701020018 / STIMIK Primakara)
