@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+I Made Nawa Aripurna
 # Kelas untuk Intermediate Front-end
 
 Untuk mempermudah kegiatan di kelas ikuti langkah-langkah berikut:
@@ -76,6 +76,3 @@ git add .
 git commit -m "pesan commit"
 git push origin nama-branch
 ```
-=======
-I Made Nawa Aripurna
->>>>>>> 05a29305bc22f58d935dec780af5d07ffe75c47d
