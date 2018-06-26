@@ -12,7 +12,7 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-  margin: 0; 
+  margin: 0;
 }
 
 header, nav, footer, section, article, div {
@@ -29,7 +29,7 @@ ul {
 /*
  *
  * Common
- * 
+ *
  */
 
 .news__more {
@@ -68,8 +68,8 @@ ul {
 
 .header__title {
   font-weight: 300;
-  font-size: 2.7em;
-  margin: 1em 0.25em;
+  font-size: 4em;
+  margin: 0.5em 0.25em;
   display: inline-block;
   color: #212121;
 }
@@ -106,11 +106,10 @@ ul {
 .nav a {
   text-decoration: none;
   color: #616161;
-  font-size:1.3em;
-  min-width: 48px;
-  min-height: 48px;
+  padding: 1.5em;
 }
 
+.nav a:hover {
   text-decoration: underline;
   color: #212121;
 }
@@ -143,7 +142,6 @@ main {
  */
 
 .hero {
-  float: left;
   width: 100%;
   position: relative;
   background-image: url("./images/dog.jpg");
@@ -171,8 +169,6 @@ main {
  */
 
 .top-news {
-  float: right;
-  width: 100%;
   height: 300px;
   border-bottom: 1px solid #E0E0E0;
   padding: 1em;
@@ -202,6 +198,8 @@ main {
 .top-news__item a {
   text-decoration: none;
   color: #666;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
 }
 
 .top-news__item a:hover,
@@ -217,8 +215,6 @@ main {
  */
 
 .scores {
-  width: 100%;
-  float: left;
   padding-top: 1em;
 }
 
@@ -229,7 +225,7 @@ main {
 
 .scores__table th,
 .scores__table td {
-  padding: 1em; 
+  padding: 1em;
 }
 
 .scores__table th {
@@ -266,8 +262,6 @@ main {
  */
 
 .weather {
-  float: right;
-  width: 100%;
   padding: 1em;
 }
 
@@ -317,7 +311,7 @@ main {
 
 /*
  *
- * Weather
+ * Recent News
  *
  */
 
@@ -344,6 +338,8 @@ main {
 .snippet__title a {
   text-decoration: none;
   color: #666;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
 }
 
 .snippet__title a:hover,
@@ -372,6 +368,5 @@ footer li {
 footer a {
   text-decoration: none;
   color: #333;
-  min-width: 48px;
-  min-height: 48px;
+  padding: 1.5em;
 }
