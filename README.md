@@ -1,16 +1,8 @@
-# Kelas untuk Intermediate Front-end
-
-Untuk mempermudah kegiatan di kelas ikuti langkah-langkah berikut:
-
-- Buat akun di github.com
-- pastikan git & node (pastikan pilih v8+) sudah terinstall, bisa kalian cek [di sini](https://github.com/DSCBali/preclass)
-- pakailah terminal sesuai kenyamanan kalian
-- pastikan sudah berada di folder yang kalian inginkan
-- jalankan command:
+# Responsive Web Design
+Jika ingin balik ke branch master:
 ```
-git clone https://github.com/DSCBali/mobile-web.git
+git checkout master
 ```
-- ini akan membuat file baru bernama **mobile-web**
 
 ## Tugas 1
 - Buatlah sebuah _branch_ baru dengan:
