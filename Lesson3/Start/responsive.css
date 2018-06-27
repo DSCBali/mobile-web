@@ -58,8 +58,25 @@
 /* Buat hero sebelah kiri dan weather sebelah kanan, hero lebih lebar sedikit */
 @media screen and (min-width: 550px) {
   .hero {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 60%;
+    order: 1;
+  }
+  .top-news {
+    order: 3;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+  }
+  .scores {
+    order: 4;
+    flex-basis: 100%;
   }
   .weather {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 40%;
+    order: 2;
   }
 }
 
@@ -75,12 +92,22 @@
 
 @media screen and (min-width: 700px) {
   .hero {
+    order: 1;
+    flex-wrap: wrap;
+    flex-basis: 50%;
   }
   .top-news {
+    order: 2;
+    flex-wrap: wrap;
+    flex-basis: 50%;
   }
   .scores {
+    order: 3;
+    flex-basis: 50%;
   }
   .weather {
+    order: 4;
+    flex-basis: 50%;
   }
 }
 
