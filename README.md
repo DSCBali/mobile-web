@@ -10,68 +10,33 @@ Untuk mempermudah kegiatan di kelas ikuti langkah-langkah berikut:
 ```
 git clone https://github.com/DSCBali/mobile-web.git
 ```
-- ini akan membuat file baru bernama **mobile-web**
+- ini akan membuat folder baru bernama **mobile-web**
 
-## Tugas 1
-- Buatlah sebuah _branch_ baru dengan:
-```
-git checkout -b nama-kalian
-```
-- Dalam file **README.MD** gantilah isinya dengan nama kalian.
-- Dan jalankan command:
-```
-git push origin nama-kalian
-```
-- install package **serve** dengan cara:
-```
-npm i -g serve
-```
-- serve merupakan sebuah web server lokal, jalankan command :
-```
-serve .
-```
+## Modules
 
+Untuk membiasakan diri dengan git setiap modul akan berada di _branch_ masing-masing.
+Berikut daftar nama branch yang ada dalam repo ini:
+- responsive-web-design
 
-## Tugas 2
-- Buka http://localhost:5000/Lesson2/Start/
-- File yang perlu kalian edit hanya ada di **main.css**
-- Carilah selector class yang memiliki width absolute contohnya:
+Bisa dengan beberapa cara berikut dan pastikan kalian ada di branch **master**:
+
+Jalankan command:
 ```
-width: 800px
+git checkout -b origin origin/nama-branch
 ```
-- Ganti value-value tersebut dengan width relative (memakai **%**)
+Jika kalian gagal atau mengalami bisa dengan cara lain:
 ```
-width: 100%
-```
-- Ganti semua tag *a*(anchor tag) *agar memiliki minimal width & height 48px
-- Jangan lupa untuk add & commit:
-```
-git add .
-git commit -m "pesan commit"
-git push origin nama-branch
+git fetch origin
+git checkout nama-branch
 ```
 
-## Tugas 3
-- Buka http://localhost:5000/quizzes/media-query
-- File yang perlu kalian edit ada di **quizzes/media-query.html**
-- Kalian hanya perlu mengganti warna background dari tag **body** menjadi:
-  - red, di antara 0-400px
-  - green, di antara 401-599px
-  - blue, width >= 600px (bisas pakai min-width)
-- Jangan lupa untuk add & commit:
+### Responsive Web Design
+Jalankan command:
 ```
-git add .
-git commit -m "pesan commit"
-git push origin nama-branch
+git checkout -b origin origin/responsive-web-design
 ```
-
-## Tugas 4
-- Buka http://localhost:5000/lesson3/Start/
-- File yang perlu kalian edit ada di **Lesson3/Start/responsive.css**
-- Di sana sudah ada catatan yang perlu kalian lakukan
-- Jangan lupa untuk add & commit:
+Atau
 ```
-git add .
-git commit -m "pesan commit"
-git push origin nama-branch
+git fetch origin
+git checkout responsive-web-design
 ```
