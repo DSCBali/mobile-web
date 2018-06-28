@@ -40,3 +40,13 @@ Atau
 git fetch origin
 git checkout responsive-web-design
 ```
+
+Untuk melanjutkan tugas bagi kalian yang sudah mempunyai branch, pastikan sudah melakukan command diatas.
+
+```
+git checkout branch-kalian
+git merge responsive-web-design
+```
+File-file tugas akan terlihat di repo lokal kalian.
+
+Bagi yang belum mempunyai branch tersendiri. Silahkan ikuti langkah-langkah yang sudah tertera di branch **responsive-web-design**.
