@@ -22,7 +22,7 @@ Bisa dengan beberapa cara berikut dan pastikan kalian ada di branch **master**:
 
 Jalankan command:
 ```
-git checkout -b origin origin/nama-branch
+git checkout -b nama-branch origin/nama-branch
 ```
 Jika kalian gagal atau mengalami bisa dengan cara lain:
 ```
@@ -33,7 +33,7 @@ git checkout nama-branch
 ### Responsive Web Design
 Jalankan command:
 ```
-git checkout -b origin origin/responsive-web-design
+git checkout -b responsive-web-design origin/responsive-web-design
 ```
 Atau
 ```
