@@ -1,4 +1,6 @@
 # Kelas untuk Intermediate Front-end
+Eksa Pramindanata
+--------------
 
 Untuk mempermudah kegiatan di kelas ikuti langkah-langkah berikut:
 
