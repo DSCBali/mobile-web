@@ -40,7 +40,7 @@ width: 100%
 ```
 git add .
 git commit -m "pesan commit"
-git push origin nama-branch
+git push origin branch-kalian
 ```
 
 ## Tugas 3
@@ -54,7 +54,7 @@ git push origin nama-branch
 ```
 git add .
 git commit -m "pesan commit"
-git push origin nama-branch
+git push origin branch-kalian
 ```
 
 ## Tugas 4
@@ -65,5 +65,5 @@ git push origin nama-branch
 ```
 git add .
 git commit -m "pesan commit"
-git push origin nama-branch
+git push origin branch-kalian
 ```
