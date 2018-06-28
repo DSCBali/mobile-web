@@ -24,7 +24,10 @@ ul {
   padding: 0;
   margin: 0;
 }
-
+a {
+  min-width: 48px;
+  min-height: 48px;
+}
 
 /*
  *
@@ -53,7 +56,8 @@ ul {
 }
 
 .header__inner {
-  width: 800px;
+  width: 100%;
+  max-width: 70%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -81,7 +85,8 @@ ul {
  */
 
 .nav {
-  width: 800px;
+  width: 100%;
+  max-width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -95,7 +100,7 @@ ul {
 .nav__item {
   box-sizing: border-box;
   display: inline-block;
-  width: 24%;
+  width: 48;
   text-align: center;
   line-height: 24px;
   padding: 24px;
@@ -121,7 +126,8 @@ ul {
 
 main {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-  width: 800px;
+  width: 100%;
+  max-width: 85%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -141,11 +147,13 @@ main {
 
 .hero {
   float: left;
-  width: 480px;
+  width: 100%;
   position: relative;
   background-image: url("./images/dog.jpg");
   background-size: cover;
-  height: 300px;
+  height: 400px;
+  max-width: 100%;
+  
 }
 
 .hero article {
@@ -169,10 +177,13 @@ main {
 
 .top-news {
   float: right;
-  width: 320px;
+  width: 100%;
   height: 300px;
   border-bottom: 1px solid #E0E0E0;
   padding: 1em;
+  max-width: 100%;
+  margin-right: auto;
+  position: relative;
 }
 
 .news__title {
@@ -212,13 +223,48 @@ main {
  * Sport Scores
  *
  */
+@media screen and (min-width: 320px ){
+  .scores {
+    width: 100%;
+    max-width: 100%;
 
+    float: left;
+    padding-top: 1em;
+    overflow: auto;
+  
+  }
+  .weather {
+  float: right;
+  width: 100%;
+  max-width: 100%;
+  padding: 1em;
+  }
+}
+@media screen and (min-width: 768px ){
+  .scores {
+    width: 100%;
+    max-width: 66%;
+    float: left;
+    padding-top: 1em;
+    overflow: auto;
+    
+  }
+  .weather {
+  float: right;
+  width: 100%;
+  max-width: 33%;
+  padding: 1em;
+  }
+}
+/*
 .scores {
-  width: 480px;
+  width: 100%;
+  max-width: 64%;
   float: left;
   padding-top: 1em;
+  overflow: auto;
 }
-
+*/
 .scores__table {
   width: 100%;
   border-collapse: collapse;
@@ -262,12 +308,13 @@ main {
  *
  */
 
-.weather {
+/*.weather {
   float: right;
-  width: 320px;
+  width: 100%;
+  max-width: 26%;
   padding: 1em;
 }
-
+*/
 .weather__location {
   display: block;
   font-weight: 300;
