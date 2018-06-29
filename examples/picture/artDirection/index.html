@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title> Art Direction Practice</title>
+  <style>
+    body {
+      margin: 5vw;
+    }
+
+    img {
+      width: 100vw;
+      margin: auto -5vw;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="content">
+    <picture>
+      <source media="(min-width: 750px)" srcset="images/nashville-large.jpg"></source>
+      <source media="(min-width: 500px)" srcset="images/nashville-medium.jpg"></source>
+      <img src="images/nashville-small.jpg" alt="Nashville panorama">
+    </picture>
+
+    <picture>
+      <source media="(min-width: 750px)" srcset="images/wrigley_field-large.jpg"></source>
+      <source media="(min-width: 500px)" srcset="images/wrigley_field-medium.jpg"></source>
+      <img src="images/wrigley_field-small.jpg" alt="Wrigley Field - panorama - upper deck">
+    </picture>
+
+    <picture>
+      <source media="(min-width: 750px)" srcset="images/astronaut-large.jpg"></source>
+      <source media="(min-width: 500px)" srcset="images/astronaut-medium.jpg"></source>
+      <img src="images/astronaut-small.jpg" alt="Apollo 17 Cernan on moon">
+    </picture>
+  </div>
+
+
+</body>
+
+</html>
