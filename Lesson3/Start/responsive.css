@@ -19,7 +19,7 @@
   .header__title {
     margin-left: 0;
     font-size: 2em;
-    vertical-align: bottom; 
+    vertical-align: bottom;
   }
   .nav {
     z-index: 10;
@@ -58,8 +58,12 @@
 /* Buat hero sebelah kiri dan weather sebelah kanan, hero lebih lebar sedikit */
 @media screen and (min-width: 550px) {
   .hero {
+    width: 60%;
+    order: 1;
   }
   .weather {
+    width: 40%;
+    order: 2;
   }
 }
 
@@ -75,12 +79,20 @@
 
 @media screen and (min-width: 700px) {
   .hero {
+    width: 50%;
+    order:1;
   }
   .top-news {
+    width: 50%;
+    order:2;
   }
   .scores {
+    width: 60%;
+    order:3;
   }
   .weather {
+    width: 40%;
+    order:4;
   }
 }
 
