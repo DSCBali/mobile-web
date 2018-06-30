@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Promisify setTimeout</title>
+</head>
+
+<body>
+	<h1>Did the promise finish?</h1>
+	<div class="completion">Not yet</div>
+	<script>
+		function wait(ms) {
+			window.setTimeout(function () {
+				console.log('Wait time: ', ms);
+			}, ms);
+		};
+
+		wait(2000);
+
+		function finish() {
+			var completion = document.querySelector('.completion');
+			completion.innerHTML = "Complete after " + milliseconds + "ms.";
+		};
+	</script>
+</body>
+
+</html>
