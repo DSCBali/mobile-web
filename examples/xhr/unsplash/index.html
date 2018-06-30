@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../resource/highlight.min.css">
+  <script src="../../resource/highlight.min.js"></script>
+
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+  <div>
+    <pre>
+      <code class="javascript">
+        // Buka https://unsplash.com/
+        // Buka console di devtools
+        
+        function handleSuccess() {
+          console.log(this.responseText);
+        }
+
+        function handleError() {
+          console.log("An error occurred");
+        }
+        
+        const req = new XMLHttpRequest();
+        req.open("GET", "https://unsplash.com");
+        
+        req.onload = handleSuccess;
+        req.onerror = handleError;
+        
+        req.send();          
+      </code>
+    </pre>
+  </div>
+</body>
+
+</html>
