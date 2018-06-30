@@ -15,12 +15,47 @@
 				console.log('Wait time: ', ms);
 			}, ms);
 		};
+		var time = 2000;
+		wait(time);
 
-		wait(2000);
+		// function wait(ms) {
+		// 	return new Promise(function (resolve) {
+		// 		console.log(this);
+		// 		window.setTimeout(function () {
+		// 			console.log('Wait time: ', ms);
+		// 			resolve();
+		// 		}, ms);
+		// 	})
+		// };
+
+		// // console.log(wait(time));
+
+		// const time = 2000;
+
+		// const wait = (ms) => {
+		// 	return new Promise((resolve) => {
+		// 		console.log(this);
+		// 		window.setTimeout(() => {
+		// 			console.log('Wait time: ', ms);
+		// 			resolve();
+		// 		}, ms);
+		// 	});
+		// }
+		// wait(time).then(finish);
+
+		// const wait = ms => new Promise((resolve) => {
+		// 	console.log(this);
+		// 	window.setTimeout(() => {
+		// 		console.log('Wait time: ', ms);
+		// 		resolve();
+		// 	}, ms);
+		// });
+		// wait(time).then(finish);
+
 
 		function finish() {
 			var completion = document.querySelector('.completion');
-			completion.innerHTML = "Complete after " + milliseconds + "ms.";
+			completion.innerHTML = "Complete after " + time + "ms.";
 		};
 	</script>
 </body>
