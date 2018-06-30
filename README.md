@@ -1,52 +1,19 @@
-# Kelas untuk Intermediate Front-end
+# Responsive Images
 
-Untuk mempermudah kegiatan di kelas ikuti langkah-langkah berikut:
-
-- Buat akun di github.com
-- pastikan git & node (pastikan pilih v8+) sudah terinstall, bisa kalian cek [di sini](https://github.com/DSCBali/preclass)
-- pakailah terminal sesuai kenyamanan kalian
-- pastikan sudah berada di folder yang kalian inginkan
-- jalankan command:
-```
-git clone https://github.com/DSCBali/mobile-web.git
-```
-- ini akan membuat folder baru bernama **mobile-web**
-
-## Modules
-
-Untuk membiasakan diri dengan git setiap modul akan berada di _branch_ masing-masing.
-Berikut daftar nama branch yang ada dalam repo ini:
-- responsive-web-design
-
-Bisa dengan beberapa cara berikut dan pastikan kalian ada di branch **master**:
-
-Jalankan command:
-```
-git checkout -b nama-branch origin/nama-branch
-```
-Jika kalian gagal atau mengalami bisa dengan cara lain:
-```
-git fetch origin
-git checkout nama-branch
-```
-
-### Responsive Web Design
-Jalankan command:
-```
-git checkout -b responsive-web-design origin/responsive-web-design
-```
-Atau
-```
-git fetch origin
-git checkout responsive-web-design
-```
-
-Untuk melanjutkan tugas bagi kalian yang sudah mempunyai branch, pastikan sudah melakukan command diatas.
+Jika ingin balik ke branch master:
 
 ```
-git checkout branch-kalian
-git merge responsive-web-design
+git checkout master
 ```
-File-file tugas akan terlihat di repo lokal kalian.
 
-Bagi yang belum mempunyai branch tersendiri. Silahkan ikuti langkah-langkah yang sudah tertera di branch **responsive-web-design**.
+Untuk melihat slide bisa buka [di sini](https://docs.google.com/presentation/d/1zZpRBxBgJ3jGhekfijoYkmuiyldhhvZNVhPFT8F7o0U/edit?usp=sharing)
+
+### Demo
+
+Kalian bisa lihat daftar dari contoh-contoh di folder **examples**
+
+### Links
+
+Ada banyak tutorial perihal es6 di internet, namun yang cukup bagus untuk sekaligus latihan bisa di sini:
+
+[freecodecamp](https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/es6)
