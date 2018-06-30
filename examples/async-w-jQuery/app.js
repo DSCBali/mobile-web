@@ -8,5 +8,66 @@
     e.preventDefault();
     responseContainer.innerHTML = '';
     searchedForText = searchField.value;
+    // TODO log the searched text
+
+    // TODO add $.ajax call function
+    // TODO handle done & fail function
   });
+
+  function addImage() {
+    let htmlContent = '';
+    // TODO remove JSON.parse and add params to this function
+    // You can use arrow functions now
+    const data = JSON.parse(this.responseText);
+
+    if (data && data.results && data.results[0]) {
+      const firstImage = data.results[0];
+      htmlContent = `
+      <figure>
+        <img src="${firstImage.urls.regular}" alt="${searchedForText}" />
+        <figcaption>${searchedForText} by ${firstImage.user.name}</figcaption>
+      </figure>`;
+    } else {
+      htmlContent = '<div class="error-no-image">No images available</div>';
+    }
+
+    responseContainer.insertAdjacentHTML('afterbegin', htmlContent);
+  }
+
+  function addArticles() {
+    let htmlContent = '';
+    // TODO remove JSON.parse and add params to this function
+    // You can use arrow functions now
+    const data = JSON.parse(this.responseText);
+
+    if (data.response && data.response.docs && data.response.docs.length > 1) {
+      htmlContent =
+        '<ul>' +
+        data.response.docs
+          .map(
+            article => `
+            <li class="article">
+              <h2><a href="${article.web_url}">${article.headline.main}</a></h2>
+              <p>${article.snippet}</p>
+            </li>
+          `
+          )
+          .join('') +
+        '</ul>';
+    } else {
+      htmlContent =
+        '<div class="error-no-articles">No articles available</div>';
+    }
+
+    responseContainer.insertAdjacentHTML('beforeend', htmlContent);
+  }
+
+  const requestError = (err, part) => {
+    // Simulate offline
+    console.log(err);
+    responseContainer.insertAdjacentHTML(
+      'beforeend',
+      `<p class="network-warning error-${part}">Oh no! There was an error making a request for the ${part}.</p>`
+    );
+  };
 })();

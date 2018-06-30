@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../resource/highlight.min.css">
+  <script src="../resource/highlight.min.js"></script>
+
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+  <div>
+    <pre>
+      <code class="javascript">
+        // Contoh dengan XHR Object
+        const imgReq = new XMLHttpRequest();
+        imgReq.open(
+          'GET',
+          `https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`
+        );
+        imgReq.send();
+
+        // Contoh dengan jQuery Ajax
+        $.ajax({
+          url: `https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`
+        })
+
+        // Contoh dengan Fetch (coba di console)
+        fetch(`https://api.unsplash.com/search/photos?page=1&query=javascript`)
+
+        
+        
+        
+        // Dengan headers
+        fetch(`https://api.unsplash.com/search/photos?page=1&query=javascript`, {
+          headers: {
+            Authorization: 'Client-ID e30dcbd33dcdfe710cbf09deadb3879953d4b938db45fcfe4bde9ddd6deeacdb'
+          }
+        })
+
+        
+        
+        
+        // Debug Handle response
+        fetch(`https://api.unsplash.com/search/photos?page=1&query=javascript`, {
+          headers: {
+            Authorization: 'Client-ID e30dcbd33dcdfe710cbf09deadb3879953d4b938db45fcfe4bde9ddd6deeacdb'
+          }
+        }).then(function(response) {
+          debugger;
+        });
+
+        
+        
+        
+        // Handle response
+        fetch(`https://api.unsplash.com/search/photos?page=1&query=javascript`, {
+          headers: {
+            Authorization: 'Client-ID e30dcbd33dcdfe710cbf09deadb3879953d4b938db45fcfe4bde9ddd6deeacdb'
+          }
+        }).then(function(response) {
+          console.log(response.json());
+        });
+
+
+
+        // Handle response
+        fetch(`https://api.unsplash.com/search/photos?page=1&query=javascript`, {
+          headers: {
+            Authorization: 'Client-ID e30dcbd33dcdfe710cbf09deadb3879953d4b938db45fcfe4bde9ddd6deeacdb'
+          }
+        }).then(function(response) {
+          return response.json()
+        }).then(function(data) {
+          debugger;
+        });
+
+
+
+        // Arrow Functions
+        fetch(`https://api.unsplash.com/search/photos?page=1&query=javascript`, {
+          headers: {
+            Authorization: 'Client-ID e30dcbd33dcdfe710cbf09deadb3879953d4b938db45fcfe4bde9ddd6deeacdb'
+          }
+        }).then(response => {
+          return response.json()
+        }).then(data => {
+          debugger;
+        });
+      </code>
+    </pre>
+  </div>
+</body>
+
+</html>
