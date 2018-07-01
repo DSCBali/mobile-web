@@ -58,10 +58,24 @@
 /* Buat hero sebelah kiri dan weather sebelah kanan, hero lebih lebar sedikit */
 @media screen and (min-width: 550px) {
   .hero {
+	order: 0;
+	width: 70%;
   }
   .weather {
+	order: 1;
+	width: 30%;
   }
+
+  .top-news{
+	width: 100%;
+  }
+
+  .scores{
+	width: 100%;
+  }
+
 }
+
 
 /* Urutkan berdasarkan berikut:
  * 1. hero
@@ -75,12 +89,20 @@
 
 @media screen and (min-width: 700px) {
   .hero {
+	order: 0;
+	width: 50%;
   }
   .top-news {
+	order: 1;
+	width: 50%;
   }
   .scores {
+	order: 2;
+	width: 60%;
   }
   .weather {
+	order: 3;
+	width: 40%;
   }
 }
 
