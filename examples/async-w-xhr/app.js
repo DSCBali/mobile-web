@@ -8,20 +8,40 @@
     e.preventDefault();
     responseContainer.innerHTML = '';
     searchedForText = searchField.value;
-    // TODO log the searched text
+    console.log(searchedForText);
 
-    // TODO create new XHR Object for image
-    // TODO assign onload property to a function
-    // TODO assign onerror property to a function
-    // TODO make an open request
-    // TODO set request header
-    // TODO send the request
+    // COMPLETE create new XHR Object for image
+    const imgReq = new XMLHttpRequest();
+    // COMPLETE assign onload property to a function
+    imgReq.onload = addImage;
+    // COMPLETE assign onerror property to a function
+    imgReq.onerror = requestError;
+    // COMPLETE make an open request
+    imgReq.open('GET', 
+      `https://api.unsplash.com/search/photos?query=${searchedForText}`
+    );
+    // COMPLETE set request header
+    imgReq.setRequestHeader(
+      'Authorization',
+      'Client-ID YOUR_API_KEY'
+    );
+    // COMPLETE send the request
+    imgReq.send();
 
-    // TODO create new XHR Object for articles
-    // TODO assign onload property to a function
-    // TODO assign onerror property to a function
-    // TODO make an open request
-    // TODO send the request
+    // COMPLETE create new XHR Object for articles
+    const articleReq = new XMLHttpRequest();
+    // COMPLETE assign onload property to a function
+    articleReq.onload = addArticles;
+    // COMPLETE assign onerror property to a function
+    articleReq.onerror = requestError;
+
+    // COMPLETE make an open request
+    articleReq.open(
+      'GET',
+      `http://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=e6a9801dab184d89a4d77b94ff44048c`
+    );
+    // COMPLETE send the request
+    articleReq.send();
   });
 
   function addImage() {
