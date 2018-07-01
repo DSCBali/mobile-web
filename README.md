@@ -1,4 +1,5 @@
 # Kelas untuk Intermediate Front-end
+# BRANCH: JUSTIN BANU PRABOWO
 
 Untuk mempermudah kegiatan di kelas ikuti langkah-langkah berikut:
 
@@ -43,7 +44,7 @@ width: 800px
 ```
 width: 100%
 ```
-- Ganti semua tag *a*(anchor tag) *agar memiliki minimal width & height 48px
+- Ganti semua tag *a*(anchor tag) *agar memiliki minimal width & height 48px*
 - Jangan lupa untuk add & commit:
 ```
 git add .
