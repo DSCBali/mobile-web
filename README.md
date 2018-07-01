@@ -76,3 +76,14 @@ Atau
 git fetch origin
 git checkout responsive-images
 ```
+
+### ES6
+
+Jalankan command:
+
+Atau
+
+```
+git fetch origin
+git checkout es6
+```
