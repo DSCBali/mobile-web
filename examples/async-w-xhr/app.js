@@ -23,7 +23,7 @@
     // COMPLETE set request header
     imgReq.setRequestHeader(
       'Authorization',
-      'Client-ID YOUR_API_KEY'
+      'Client-ID e30dcbd33dcdfe710cbf09deadb3879953d4b938db45fcfe4bde9ddd6deeacdb'
     );
     // COMPLETE send the request
     imgReq.send();
@@ -46,6 +46,7 @@
 
   function addImage() {
     let htmlContent = '';
+    console.log(this)
     const data = JSON.parse(this.responseText);
 
     if (data && data.results && data.results[0]) {

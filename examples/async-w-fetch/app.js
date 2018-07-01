@@ -8,16 +8,38 @@
     e.preventDefault();
     responseContainer.innerHTML = '';
     searchedForText = searchField.value;
-    // TODO log the searched text
+    // COMPLETE log the searched text
+    console.log(searchedForText);
 
-    // TODO implement fetch call
+    fetch(
+      `https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`,
+      {
+        headers: {
+          Authorization:
+            'Client-ID e30dcbd33dcdfe710cbf09deadb3879953d4b938db45fcfe4bde9ddd6deeacdb'
+        }
+      }
+    )
+    .then(function(response) {
+      return response.json();
+    })
+    .then(addImage)
+    .catch(requestError);
+
+    fetch(
+      `http://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=e6a9801dab184d89a4d77b94ff44048c`
+    )
+      .then(function(response) {
+        return response.json();
+      })
+      .then(addArticles)
+      .catch(requestError);
   });
 
-  function addImage() {
+  function addImage(data) {
     let htmlContent = '';
     // TODO remove JSON.parse and add params to this function
     // You can use arrow functions now
-    const data = JSON.parse(this.responseText);
 
     if (data && data.results && data.results[0]) {
       const firstImage = data.results[0];
@@ -33,11 +55,10 @@
     responseContainer.insertAdjacentHTML('afterbegin', htmlContent);
   }
 
-  function addArticles() {
+  function addArticles(data) {
     let htmlContent = '';
     // TODO remove JSON.parse and add params to this function
     // You can use arrow functions now
-    const data = JSON.parse(this.responseText);
 
     if (data.response && data.response.docs && data.response.docs.length > 1) {
       htmlContent =
