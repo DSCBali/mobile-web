@@ -1,30 +1,38 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
   fillMessages();
-})
+  registerServiceWorker();
+});
 
-const fillMessages = () => {
-  DBHelper.fetchMessages().then(messages => {
-    const chatLists = document.getElementById('chat-lists');
+function registerServiceWorker() {
+  // TODO Registrasi SW di sini
+};
 
-    messages.forEach(chat => {
+
+/**
+ * Hiraukan code di bawah ini
+ */
+
+function fillMessages() {
+  DBHelper.fetchMessages().then(function(messages) {
+    var chatLists = document.getElementById('chat-lists');
+
+    messages.forEach(function(chat) {
       createList(chatLists, chat);
     });
   });
 }
 
-const createList = (chatLists, chat) => {
-  const card = document.createElement('div');
+function createList(chatLists, chat) {
+  var card = document.createElement('div');
   card.classList.add('card')
   
-  const cardContent = document.createElement('div');
+  var cardContent = document.createElement('div');
   cardContent.classList.add('card-content');
 
-  // let cardImage;
-
   if (chat.photo) {
-    const cardImage = document.createElement('div');
+    var cardImage = document.createElement('div');
     cardImage.classList.add('card-image');
-    const imgSrc = document.createElement('img');
+    var imgSrc = document.createElement('img');
     imgSrc.src = chat.photo;
     imgSrc.setAttribute('srcset', `
       ${chat.photo}-1024px.jpg 1024w,
@@ -41,18 +49,18 @@ const createList = (chatLists, chat) => {
     card.append(cardImage);
   }
 
-  const avatar = document.createElement('img');
+  var avatar = document.createElement('img');
   avatar.classList = 'circle';
   avatar.src = `${chat.avatar}-1x.jpg`;
   avatar.setAttribute('srcset', `${chat.avatar}-2x.jpg 2x, ${chat.avatar}-3x.jpg 3x`)
   cardContent.append(avatar);
   
-  const name = document.createElement('span');
+  var name = document.createElement('span');
   name.classList = 'card-title';
   name.innerHTML = chat.name;
   cardContent.append(name);
 
-  const text = document.createElement('p');
+  var text = document.createElement('p');
   text.innerHTML = chat.body;
   cardContent.append(text);
 
