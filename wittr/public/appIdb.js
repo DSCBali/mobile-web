@@ -20,7 +20,7 @@
 //   // Coba refresh browser dan lihat console
 // });
 
-const dbPromise = idb.open('test-db', 2, function(upgradeDb) {
+const dbPromise = idb.open('test-db', 3, function(upgradeDb) {
   // Di sini tidak ada break dalam switch karena ada kemungkinan user mempunyai versi 1
   // dan db yang terbaru berada di versi 4 (misalnya)
   switch (upgradeDb.oldVersion) {
@@ -29,6 +29,10 @@ const dbPromise = idb.open('test-db', 2, function(upgradeDb) {
       keyValStore.put('world', 'hello');
     case 1:
       upgradeDb.createObjectStore('people', { keyPath: 'name' });
+    case 2:
+      const peopleStore = upgradeDb.transaction.objectStore('people');
+      peopleStore.createIndex('animal', 'favoriteAnimal');
+    // TODO buatlah index baru untuk urutkan berdasarkan age
   }
 });
 
@@ -120,3 +124,18 @@ dbPromise
     console.log('People: ', people);
     // Coba lihat urutan dari people
   });
+
+dbPromise
+  .then(function(db) {
+    const tx = db.transaction('people');
+    const peopleStore = tx.objectStore('people');
+    const animalIndex = peopleStore.index('animal');
+    return animalIndex.getAll();
+    // return animalIndex.getAll('cat'); // query hanya cat
+  })
+  .then(function(people) {
+    console.log('People: ', people);
+    // Coba lihat urutan dari people
+  });
+
+// TODO: tampilkan people berdasarkan age
