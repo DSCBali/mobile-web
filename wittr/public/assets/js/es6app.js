@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  fillMessages();
-  registerServiceWorker();
+  // fillMessages();
+  // registerServiceWorker();
 });
 
 const registerServiceWorker = () => {
