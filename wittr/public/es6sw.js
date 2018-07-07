@@ -1,4 +1,6 @@
 const staticCacheName = 'wittr-static-v1';
+const contentImgsCache = 'wittr-content-imgs';
+const allCaches = [staticCacheName, contentImgsCache];
 
 self.addEventListener('install', event => {
   const urlsToCache = [
@@ -25,7 +27,7 @@ self.addEventListener('activate', event => {
           cacheNames
             .filter(
               cacheName =>
-                cacheName.startsWith('wittr-') && cacheName !== staticCacheName
+                cacheName.startsWith('wittr-') && !allCaches.includes(cacheName)
             )
             .map(cacheName => caches.delete(cacheName))
         )
@@ -34,6 +36,12 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
+  const requestUrl = new URL(event.request.url);
+  if (requestUrl.pathname.startsWith('/photos/')) {
+    event.respondWith(servePhoto(event.request));
+    return;
+  }
+
   event.respondWith(
     caches
       .match(event.request)
@@ -49,6 +57,22 @@ self.addEventListener('fetch', event => {
   );
   // Coba simulasi offline dan lihat hasilnya
 });
+
+const servePhoto = request => {
+  const storageUrl = request.url.replace(/-\d+px\.jpg$/, '');
+
+  return caches.open(contentImgsCache).then(cache => {
+    return cache.match(storageUrl).then(response => {
+      if (response) return response;
+
+      return fetch(request).then(networkResponse => {
+        cache.put(storageUrl, networkResponse.clone());
+        // .clone() karena hanya bisa membaca body dari response sekali
+        return networkResponse; // kembalikan response ke browser
+      });
+    });
+  });
+};
 
 self.addEventListener('message', event => {
   if (event.data.action === 'skipWaiting') {
