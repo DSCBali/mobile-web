@@ -1,12 +1,12 @@
-var staticCacheName = 'wittr-static-v3';
+var staticCacheName = 'wittr-static-v1';
 
 self.addEventListener('install', function(event) {
   var urlsToCache = [
     '/',
-    '/chats',
     'assets/css/materialize.min.css',
     'assets/css/styles.css',
     'assets/js/materialize.min.js',
+    'assets/js/idb.js',
     'assets/js/dbHelper.js',
     'assets/js/es6app.js'
   ];
@@ -38,11 +38,17 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', function(event) {
   event.respondWith(
-    caches.match(event.request).then(function(response) {
-      if (response) return response;
-      return fetch(event.request);
-      // return response || fetch(event.request);
-    })
+    caches
+      .match(event.request)
+      .then(function(response) {
+        if (response) return response;
+        return fetch(event.request).catch(function() {
+          return new Response('Offline');
+        });
+      })
+      .catch(() => {
+        console.log('FAILED ON CACHES');
+      })
   );
   // Coba simulasi offline dan lihat hasilnya
 });

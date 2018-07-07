@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // fillMessages();
-  // registerServiceWorker();
+  fillMessages();
+  registerServiceWorker();
 });
 
 var registerServiceWorker = function registerServiceWorker() {
@@ -42,19 +42,20 @@ var trackInstalling = function trackInstalling(worker) {
   });
 };
 
-/**
- * Hiraukan code di bawah ini
- */
-
 function fillMessages() {
   DBHelper.fetchMessages().then(function(messages) {
-    var chatLists = document.getElementById('chat-lists');
+    const chatLists = document.getElementById('chat-lists');
+    console.log(messages);
 
     messages.forEach(function(chat) {
       createList(chatLists, chat);
     });
   });
 }
+
+/**
+ * Hiraukan code di bawah ini
+ */
 
 function createList(chatLists, chat) {
   var card = document.createElement('div');

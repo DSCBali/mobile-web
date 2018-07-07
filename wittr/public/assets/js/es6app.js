@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // fillMessages();
-  // registerServiceWorker();
+  fillMessages();
+  registerServiceWorker();
 });
 
 const registerServiceWorker = () => {
@@ -57,19 +57,20 @@ const trackInstalling = worker => {
   });
 };
 
-/**
- * Hiraukan code di bawah ini
- */
-
 const fillMessages = () => {
   DBHelper.fetchMessages().then(messages => {
     const chatLists = document.getElementById('chat-lists');
+    console.log(messages);
 
     messages.forEach(chat => {
       createList(chatLists, chat);
     });
   });
 };
+
+/**
+ * Hiraukan code di bawah ini
+ */
 
 const createList = (chatLists, chat) => {
   const card = document.createElement('div');
