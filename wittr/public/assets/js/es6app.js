@@ -4,7 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const registerServiceWorker = () => {
-  // TODO Registrasi SW di sini
+  if (!navigator.serviceWorker) return;
+
+  navigator.serviceWorker.register('/es6sw.js').then(() => {
+    console.log('Service Worker Registration Success!');
+  }).catch(() => {
+    console.log('Service Worker Registration Failed!');
+  })
 }
 
 

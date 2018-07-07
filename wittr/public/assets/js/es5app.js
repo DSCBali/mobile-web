@@ -4,7 +4,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function registerServiceWorker() {
-  // TODO Registrasi SW di sini
+  if (!navigator.serviceWorker) return;
+
+  navigator.serviceWorker.register('/es5sw.js').then(function () {
+    console.log('Service Worker Registration Success!');
+  }).catch(function () {
+    console.log('Service Worker Registration Failed!');
+  });
 };
 
 
