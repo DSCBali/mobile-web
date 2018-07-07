@@ -4,18 +4,6 @@
 // HTML, CSS, JS, Images.
 
 self.addEventListener('fetch', function(event) {
-  // TODO: respond semua request dengan sebuah response HTML
-  // Dengan elemen class="title"
-  // Pastikan Content-Type dari response "text/html"
-
-  // intercept event dengan method respondWith
-  // Method tersebut berfungsi untuk override method fetch bawaan dari browser
-  
-  // Di dalam method tambahkan new Response()
-  // Constuctor Response dapat menerima 2 argumen:
-  // - body dari response, bisa berupa String, blob, BufferSource
-  // - init (options untuk response): headers, status, statusText
-
   // event.respondWith(
   //   new Response('Hello <b class="title">World</b>', {
   //     headers: { 'Content-Type': 'text/html'}
@@ -26,5 +14,14 @@ self.addEventListener('fetch', function(event) {
   // event.respondWith(
   //   fetch('assets/images/dr-evil.gif')
   // )
-  console.log(event.request);
+
+  // Cek tiap url yang dikirim
+  // console.log(event.request.url);
+
+  // Kita hanya ingin intercept semua request yang meminta sebuah gambar dengan format .jpg
+  // if (event.request.url.endsWith('.jpg')) {
+  //   event.respondWith(
+  //     fetch('assets/images/dr-evil.gif')
+  //   );
+  // }
 })
