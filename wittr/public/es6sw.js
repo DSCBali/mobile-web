@@ -1,3 +1,5 @@
+const staticCacheName = 'wittr-static-v2';
+
 self.addEventListener('install', event => {
   const urlsToCache = [
     '/',
@@ -13,6 +15,33 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open('wittr-static-v1').then(cache => cache.addAll(urlsToCache))
   );
+  // event.waitUntil(
+  //   caches.open('wittr-static-v2').then(cache => cache.addAll(urlsToCache))
+  // );
+  // event.waitUntil(
+  //   caches.open(staticCacheName).then(cache => cache.addAll(urlsToCache))
+  // );
+});
+
+self.addEventListener('activate', event => {
+  // TODO: Ganti warna toolbar di styles.css
+  // TODO: Ganti versi cache ke v2
+  // TODO: Hapus versi cache v1
+  // event.waitUntil(caches.delete('wittr-static-v1'));
+  // event.waitUntil(
+  //   caches
+  //     .keys()
+  //     .then(cacheNames =>
+  //       Promise.all(
+  //         cacheNames
+  //           .filter(
+  //             cacheName =>
+  //               cacheName.startsWith('wittr-') && cacheName !== staticCacheName
+  //           )
+  //           .map(cacheName => caches.delete(cacheName))
+  //       )
+  //     )
+  // );
 });
 
 self.addEventListener('fetch', event => {
