@@ -10,18 +10,18 @@ self.addEventListener('install', event => {
   ];
 
   // waitUntil menyuruh SW untuk tunggu hingga proses selesai
-  // event.waitUntil(
-  //   caches.open('wittr-static-v1').then(cache => cache.addAll(urlsToCache))
-  // );
+  event.waitUntil(
+    caches.open('wittr-static-v1').then(cache => cache.addAll(urlsToCache))
+  );
 });
 
 self.addEventListener('fetch', event => {
-  // event.respondWith(
-  //   caches.match(event.request).then(response => {
-  //     if (response) return response;
-  //     return fetch(event.request);
-  //     // return response || fetch(event.request);
-  //   })
-  // );
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      if (response) return response;
+      return fetch(event.request);
+      // return response || fetch(event.request);
+    })
+  );
   // Coba simulasi offline dan lihat hasilnya
 });
