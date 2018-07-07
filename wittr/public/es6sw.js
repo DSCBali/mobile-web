@@ -1,4 +1,4 @@
-const staticCacheName = 'wittr-static-v2';
+const staticCacheName = 'wittr-static-v3';
 
 self.addEventListener('install', event => {
   const urlsToCache = [
@@ -11,37 +11,26 @@ self.addEventListener('install', event => {
     'assets/js/es6app.js'
   ];
 
-  // waitUntil menyuruh SW untuk tunggu hingga proses selesai
   event.waitUntil(
-    caches.open('wittr-static-v1').then(cache => cache.addAll(urlsToCache))
+    caches.open(staticCacheName).then(cache => cache.addAll(urlsToCache))
   );
-  // event.waitUntil(
-  //   caches.open('wittr-static-v2').then(cache => cache.addAll(urlsToCache))
-  // );
-  // event.waitUntil(
-  //   caches.open(staticCacheName).then(cache => cache.addAll(urlsToCache))
-  // );
 });
 
 self.addEventListener('activate', event => {
-  // TODO: Ganti warna toolbar di styles.css
-  // TODO: Ganti versi cache ke v2
-  // TODO: Hapus versi cache v1
-  // event.waitUntil(caches.delete('wittr-static-v1'));
-  // event.waitUntil(
-  //   caches
-  //     .keys()
-  //     .then(cacheNames =>
-  //       Promise.all(
-  //         cacheNames
-  //           .filter(
-  //             cacheName =>
-  //               cacheName.startsWith('wittr-') && cacheName !== staticCacheName
-  //           )
-  //           .map(cacheName => caches.delete(cacheName))
-  //       )
-  //     )
-  // );
+  event.waitUntil(
+    caches
+      .keys()
+      .then(cacheNames =>
+        Promise.all(
+          cacheNames
+            .filter(
+              cacheName =>
+                cacheName.startsWith('wittr-') && cacheName !== staticCacheName
+            )
+            .map(cacheName => caches.delete(cacheName))
+        )
+      )
+  );
 });
 
 self.addEventListener('fetch', event => {
@@ -53,4 +42,10 @@ self.addEventListener('fetch', event => {
     })
   );
   // Coba simulasi offline dan lihat hasilnya
+});
+
+self.addEventListener('message', event => {
+  if (event.data.action === 'skipWaiting') {
+    self.skipWaiting();
+  }
 });

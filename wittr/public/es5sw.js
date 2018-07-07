@@ -1,4 +1,4 @@
-var staticCacheName = 'wittr-static-v2';
+var staticCacheName = 'wittr-static-v3';
 
 self.addEventListener('install', function(event) {
   var urlsToCache = [
@@ -11,44 +11,29 @@ self.addEventListener('install', function(event) {
     'assets/js/es6app.js'
   ];
 
-  // waitUntil menyuruh SW untuk tunggu hingga proses selesai
   event.waitUntil(
-    caches.open('wittr-static-v1').then(function(cache) {
+    caches.open(staticCacheName).then(function(cache) {
       return cache.addAll(urlsToCache);
     })
   );
-  // event.waitUntil(
-  //   caches.open('wittr-static-v2').then(function(cache) {
-  //     return cache.addAll(urlsToCache);
-  //   })
-  // );
-  // event.waitUntil(
-  //   caches.open(staticCacheName).then(function(cache) {
-  //     return cache.addAll(urlsToCache);
-  //   })
-  // );
 });
 
 self.addEventListener('activate', event => {
-  // TODO: Ganti warna toolbar di styles.css
-  // TODO: Ganti versi cache ke v2
-  // TODO: Hapus versi cache v1
-  // event.waitUntil(caches.delete('wittr-static-v1'));
-  // event.waitUntil(
-  //   caches.keys().then(function(cacheNames) {
-  //     return Promise.all(
-  //       cacheNames
-  //         .filter(function(cacheName) {
-  //           return (
-  //             cacheName.startsWith('wittr-') && cacheName !== staticCacheName
-  //           );
-  //         })
-  //         .map(function(cacheName) {
-  //           return caches.delete(cacheName);
-  //         })
-  //     );
-  //   })
-  // );
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames
+          .filter(function(cacheName) {
+            return (
+              cacheName.startsWith('wittr-') && cacheName !== staticCacheName
+            );
+          })
+          .map(function(cacheName) {
+            return caches.delete(cacheName);
+          })
+      );
+    })
+  );
 });
 
 self.addEventListener('fetch', function(event) {
@@ -60,4 +45,10 @@ self.addEventListener('fetch', function(event) {
     })
   );
   // Coba simulasi offline dan lihat hasilnya
+});
+
+self.addEventListener('message', function(event) {
+  if (event.data.action === 'skipWaiting') {
+    self.skipWaiting();
+  }
 });
