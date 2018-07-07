@@ -149,3 +149,25 @@ dbPromise
   .then(function(people) {
     console.log('People sorted by age: ', people);
   });
+
+dbPromise
+  .then(function(db) {
+    const tx = db.transaction('people');
+    const peopleStore = tx.objectStore('people');
+    const ageIndex = peopleStore.index('age');
+    return ageIndex.openCursor();
+  })
+  // .then(function(cursor) {
+  //   if (!cursor) return;
+  //   return cursor.advance(2);
+  // })
+  .then(function logPerson(cursor) {
+    if (!cursor) return;
+    console.log('Cursored at: ', cursor.value.name);
+    // cursor.update(newValue)
+    // cursor.delete()
+    return cursor.continue().then(logPerson);
+  })
+  .then(function() {
+    console.log('Done cursoring');
+  });
