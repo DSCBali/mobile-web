@@ -1,7 +1,41 @@
 document.addEventListener('DOMContentLoaded', function() {
   fillMessages();
   registerServiceWorker();
+  cleanImageCaches();
 });
+
+function cleanImageCaches() {
+  DBHelper.openDb().then(function(db) {
+    if (!db) return;
+
+    var imagesNeeded = [];
+    var tx = db.transaction('wittrs');
+    return tx
+      .objectStore('wittrs')
+      .getAll()
+      .then(function(messages) {
+        messages.forEach(function(message) {
+          if (message.photo) {
+            imagesNeeded.push(message.photo);
+          }
+          imagesNeeded.push(message.avatar);
+        });
+
+        return caches.open('wittr-content-imgs');
+      })
+      .then(function(cache) {
+        return cache.keys().then(function(requests) {
+          // console.log(requests);
+          requests.forEach(function(request) {
+            var url = new URL(request.url);
+            if (!imagesNeeded.includes(url.pathname)) {
+              cache.delete(request);
+            }
+          });
+        });
+      });
+  });
+}
 
 var registerServiceWorker = function registerServiceWorker() {
   if (!navigator.serviceWorker) return;

@@ -1,4 +1,4 @@
-const staticCacheName = 'wittr-static-v1';
+const staticCacheName = 'wittr-static-v2';
 const contentImgsCache = 'wittr-content-imgs';
 const allCaches = [staticCacheName, contentImgsCache];
 
@@ -42,6 +42,11 @@ self.addEventListener('fetch', event => {
     return;
   }
 
+  if (requestUrl.pathname.startsWith('/avatars/')) {
+    event.respondWith(serveAvatar(event.request));
+    return;
+  }
+
   event.respondWith(
     caches
       .match(event.request)
@@ -57,6 +62,21 @@ self.addEventListener('fetch', event => {
   );
   // Coba simulasi offline dan lihat hasilnya
 });
+
+const serveAvatar = request => {
+  const storageUrl = request.url.replace(/-\dx\.jpg$/, '');
+
+  return caches.open(contentImgsCache).then(cache => {
+    return cache.match(storageUrl).then(response => {
+      const networkFetch = fetch(request).then(networkResponse => {
+        cache.put(storageUrl, networkResponse.clone());
+        return networkResponse;
+      });
+
+      return response || networkFetch;
+    });
+  });
+};
 
 const servePhoto = request => {
   const storageUrl = request.url.replace(/-\d+px\.jpg$/, '');

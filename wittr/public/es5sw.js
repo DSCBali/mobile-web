@@ -1,4 +1,4 @@
-var staticCacheName = 'wittr-static-v1';
+var staticCacheName = 'wittr-static-v2';
 var contentImgsCache = 'wittr-content-imgs';
 var allCaches = [staticCacheName, contentImgsCache];
 
@@ -45,6 +45,11 @@ self.addEventListener('fetch', function(event) {
     return;
   }
 
+  if (requestUrl.pathname.startsWith('/avatars/')) {
+    event.respondWith(serveAvatar(event.request));
+    return;
+  }
+
   event.respondWith(
     caches
       .match(event.request)
@@ -73,6 +78,21 @@ function servePhoto(request) {
         // .clone() karena hanya bisa membaca body dari response sekali
         return networkResponse; // kembalikan response ke browser
       });
+    });
+  });
+}
+
+function serveAvatar(request) {
+  var storageUrl = request.url.replace(/-\dx\.jpg$/, '');
+
+  return caches.open(contentImgsCache).then(function(cache) {
+    return cache.match(storageUrl).then(function(response) {
+      var networkFetch = fetch(request).then(function(networkResponse) {
+        cache.put(storageUrl, networkResponse.clone());
+        return networkResponse;
+      });
+
+      return response || networkFetch;
     });
   });
 }
