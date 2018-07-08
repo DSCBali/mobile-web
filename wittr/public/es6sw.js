@@ -99,3 +99,9 @@ self.addEventListener('message', event => {
     self.skipWaiting();
   }
 });
+
+self.addEventListener('sync', event => {
+  console.log('sync event');
+  console.log(event);
+  self.registration.showNotification('New Notification');
+});

@@ -3,3 +3,7 @@ nav {
   /* background: #3F51B5; */
   background: red;
 }
+
+.sync-btn {
+  margin: 10px;
+}

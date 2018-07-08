@@ -41,16 +41,13 @@ const registerServiceWorker = () => {
   if (!navigator.serviceWorker) return;
 
   navigator.serviceWorker.register('/es6sw.js').then(reg => {
-    // Jika tidak ada controller, page ini tidak di load dengan SW jadinya page ini ada di versi terbaru.
     if (!navigator.serviceWorker.controller) return;
 
-    // Jika ada update sudah menunggu
     if (reg.waiting) {
       updateReady(reg.waiting);
       return;
     }
 
-    // Jika ada update lagi di install
     if (reg.installing) {
       trackInstalling(reg.installing);
       return;
@@ -68,6 +65,14 @@ const registerServiceWorker = () => {
     if (refreshing) return;
     window.location.reload();
     refreshing = true;
+  });
+};
+
+const syncMessage = () => {
+  // alert('ALERTED!');
+  navigator.serviceWorker.ready.then(registration => {
+    Notification.requestPermission();
+    registration.sync.register('showAlert');
   });
 };
 
